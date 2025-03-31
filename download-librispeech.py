@@ -49,7 +49,7 @@ def retrieve_librispeech(split_names: list[str], outdir: str, overwrite_archives
 
     # Download every archive and extract
     successful = 0
-    for file, url in tqdm(zip(filenames, file_urls), len=len(split_names), desc=f'Retrieving each of the {len(split_names)} splits'):
+    for file, url in tqdm(zip(filenames, file_urls), desc=f'Retrieving each of the {len(split_names)} splits', total=len(split_names)):
         try:
             archive_path = os.path.join(outdir, file)
             download_file(url, archive_path, replace_existing=overwrite_archives, unpack=True, dest_unpack=outdir)
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     parser.add_argument('--splits', nargs='+', default=DEFAULT_SPLITS,
                         help='List of split names to download. E.g., --splits train-clean-100 dev-clean dev-other')
     parser.add_argument('--outdir', type=str, default='./datasets/',
-                        help='Directory to stores datasets (or LibriSpeech only) in.')
+                        help='Directory to stores datasets (or only LibriSpeech) in.')
     parser.add_argument('--overwrite_archives', action='store_true',
                         help='If set, existing archive files will be overwritten instead of being reused. Default is to reuse, but one'
                              'should be sure in that case there is no unrelated/inaccurate file in the folder with the same name.')
@@ -85,6 +85,6 @@ if __name__ == '__main__':
         logging.error(f'Directory \'{args.outdir}\' does not exist nor could be created (might be a permissions issue). Aborting.')
         sys.exit(1)
     finally:
-        logging.info('Target directory: ' + args.outdir)
+        print('Target directory: ' + args.outdir)
 
-    retrieve_librispeech(args.splits, args.outdir)
+    retrieve_librispeech(args.splits, args.outdir, args.overwrite_archives, args.selected_zone, args.silent)
