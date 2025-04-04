@@ -47,7 +47,7 @@ test_csv:
 # Empirically, we found that this value should be >= 128.
 # Please, set your parameters accordingly.
 number_of_epochs: 110
-batch_size: 16 # This works for 2x GPUs with 32GB
+batch_size: 12 # Decreased from 16 to 12 due to memory issue.
 ctc_weight: 0.3
 grad_accumulation_factor: 1
 max_grad_norm: 5.0
@@ -69,7 +69,7 @@ n_mels: 80
 
 # This setup works well for V100 32GB GPU, adapts it to your needs.
 # Or turn it off (but training speed will decrease)
-dynamic_batching: True
+dynamic_batching: False  # Changed!
 max_batch_length_train: 900
 max_batch_length_val: 100 # we reduce it as the beam is much wider (VRAM)
 num_bucket: 200
