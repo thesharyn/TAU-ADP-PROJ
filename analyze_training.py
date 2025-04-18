@@ -6,7 +6,9 @@ from typing import Optional
 
 import matplotlib.pyplot as plt
 import pandas as pd
+from cycler import cycler
 
+NICE_COLORS = ['#b649ff', '#24dbff']
 
 def main():
     parser = argparse.ArgumentParser(description='Parse SpeechBrain training logs to analyze and summarize results.',
@@ -19,6 +21,7 @@ def main():
     parser.add_argument('--plots_outdir', default='./img', help='Directory to save plots in.')
 
     args = parser.parse_args()
+    plt.rcParams['axes.prop_cycle'] = cycler(color=NICE_COLORS)  # set color for plots
 
     # Gather data
     df = construct_df(args.log_files)
@@ -64,7 +67,7 @@ def parse_line(line: str) -> Optional[dict]:
     match = re.search(r'epoch: (?P<epoch>\d+), lr: (?P<lr>[-+e\d.]+), steps: (?P<steps>\d+), optimizer: \w+'
                       r' - train loss: (?P<train_loss>[-+e\d.]+) - valid loss: (?P<valid_loss>[-+e\d.]+), valid '
                       r'ACC: (?P<valid_acc>[-+e\d.]+)(?:, valid WER: (?P<valid_wer>[-+e\d.]+))?',
-                      line[len(preamble):])
+                      line[len(preamble):])  # parse fields from rest of the line
     if not match:
         return None  # line is not well-formatted
     else:
@@ -139,17 +142,17 @@ def handle_plots(df: pd.DataFrame, outdir: str) -> None:
     fig, ax1 = plt.subplots()
     ax1.plot(epochs, df['lr'], 'g-', label='Learning Rate')
     ax1.set_xlabel('Epoch')
-    ax1.set_ylabel('Learning Rate', color='g')
+    ax1.set_ylabel('Learning Rate')
 
     ax2 = ax1.twinx()
     ax2.plot(epochs, df['steps'], 'b--', label='Steps')
-    ax2.set_ylabel('Steps', color='b')
+    ax2.set_ylabel('Steps')
     plt.title('Learning Rate and Steps')
     save_plot('lr_steps', outdir)
 
 
 def save_plot(basename: str, outdir: str) -> None:
-    """Tiny utility: saves current plot as both PNG and PDF, then closes it."""
+    """Tiny utility func: saves current plot as both PNG and PDF, then closes it."""
 
     png_path = os.path.join(outdir, f'{basename}.png')
     pdf_path = os.path.join(outdir, f'{basename}.pdf')
