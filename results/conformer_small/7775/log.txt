@@ -12127,3 +12127,595 @@ Traceback (most recent call last):
   File "/home/yandex/APDL2425a/group_8/bin/Anaconda3/envs/conformer0/lib/python3.10/site-packages/torch/functional.py", line 709, in stft
     return _VF.stft(  # type: ignore[attr-defined]
 KeyboardInterrupt
+2025-04-09 10:05:56,600 - speechbrain.utils.quirks - INFO - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+2025-04-09 10:05:56,601 - speechbrain.utils.quirks - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-04-09 10:05:56,602 - speechbrain.core - INFO - Beginning experiment!
+2025-04-09 10:05:56,602 - speechbrain.core - INFO - Experiment folder: results/conformer_small/7775
+2025-04-09 10:06:03,412 - speechbrain.utils.superpowers - DEBUG - certifi==2025.1.31
+charset-normalizer==3.4.1
+filelock==3.18.0
+fsspec==2025.3.0
+huggingface-hub==0.29.3
+HyperPyYAML==1.2.2
+idna==3.10
+Jinja2==3.1.6
+joblib==1.4.2
+MarkupSafe==3.0.2
+mpmath==1.3.0
+networkx==3.4.2
+numpy==2.2.4
+nvidia-cublas-cu12==12.4.5.8
+nvidia-cuda-cupti-cu12==12.4.127
+nvidia-cuda-nvrtc-cu12==12.4.127
+nvidia-cuda-runtime-cu12==12.4.127
+nvidia-cudnn-cu12==9.1.0.70
+nvidia-cufft-cu12==11.2.1.3
+nvidia-curand-cu12==10.3.5.147
+nvidia-cusolver-cu12==11.6.1.9
+nvidia-cusparse-cu12==12.3.1.170
+nvidia-cusparselt-cu12==0.6.2
+nvidia-nccl-cu12==2.21.5
+nvidia-nvjitlink-cu12==12.4.127
+nvidia-nvtx-cu12==12.4.127
+packaging==24.2
+pillow==11.1.0
+PyYAML==6.0.2
+requests==2.32.3
+ruamel.yaml==0.18.10
+ruamel.yaml.clib==0.2.12
+scipy==1.15.2
+sentencepiece==0.2.0
+speechbrain==1.0.2
+sympy==1.13.1
+torch==2.6.0
+torchaudio==2.6.0
+torchvision==0.21.0
+tqdm==4.67.1
+triton==3.2.0
+typing_extensions==4.13.0
+urllib3==2.3.0
+
+
+2025-04-09 10:06:03,532 - speechbrain.utils.superpowers - DEBUG - 2400aed
+
+
+2025-04-09 10:06:03,546 - librispeech_prepare - INFO - Skipping preparation, completed in previous run.
+2025-04-09 10:06:06,163 - speechbrain.utils.parameter_transfer - DEBUG - Collecting files (or symlinks) for pretraining in results/conformer_small/7775/save.
+2025-04-09 10:06:06,204 - speechbrain.utils.fetching - INFO - Fetch lm.ckpt: Fetching from HuggingFace Hub 'speechbrain/asr-transformer-transformerlm-librispeech' if not cached
+2025-04-09 10:06:06,905 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2025-04-09 10:06:07,248 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /speechbrain/asr-transformer-transformerlm-librispeech/resolve/main/lm.ckpt HTTP/1.1" 302 0
+2025-04-09 10:06:07,277 - speechbrain.utils.fetching - DEBUG - Fetch: Local file found, creating symlink '/home/yandex/APDL2425a/group_8/bin/HuggingFace-cache/hub/models--speechbrain--asr-transformer-transformerlm-librispeech/snapshots/bcf56f762f37877912578f8800bc2a4f5171e5e5/lm.ckpt' -> '/home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/lm.ckpt'
+2025-04-09 10:06:07,311 - speechbrain.utils.parameter_transfer - DEBUG - Set local path in self.paths["lm"] = /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/lm.ckpt
+2025-04-09 10:06:07,318 - speechbrain.utils.fetching - INFO - Fetch tokenizer.ckpt: Fetching from HuggingFace Hub 'speechbrain/asr-transformer-transformerlm-librispeech' if not cached
+2025-04-09 10:06:07,473 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /speechbrain/asr-transformer-transformerlm-librispeech/resolve/main/tokenizer.ckpt HTTP/1.1" 302 0
+2025-04-09 10:06:07,478 - speechbrain.utils.fetching - DEBUG - Fetch: Local file found, creating symlink '/home/yandex/APDL2425a/group_8/bin/HuggingFace-cache/hub/models--speechbrain--asr-transformer-transformerlm-librispeech/snapshots/bcf56f762f37877912578f8800bc2a4f5171e5e5/tokenizer.ckpt' -> '/home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/tokenizer.ckpt'
+2025-04-09 10:06:07,480 - speechbrain.utils.parameter_transfer - DEBUG - Set local path in self.paths["tokenizer"] = /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/tokenizer.ckpt
+2025-04-09 10:06:07,480 - speechbrain.utils.parameter_transfer - INFO - Loading pretrained files for: lm, tokenizer
+2025-04-09 10:06:07,481 - speechbrain.utils.parameter_transfer - DEBUG - Redirecting (loading from local path): lm -> /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/lm.ckpt
+2025-04-09 10:06:07,481 - speechbrain.utils.parameter_transfer - DEBUG - Redirecting (loading from local path): tokenizer -> /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/tokenizer.ckpt
+2025-04-09 10:06:14,717 - speechbrain.core - INFO - Info: precision arg from hparam file is used
+2025-04-09 10:06:14,718 - speechbrain.core - INFO - Info: max_grad_norm arg from hparam file is used
+2025-04-09 10:06:14,718 - speechbrain.core - INFO - Info: grad_accumulation_factor arg from hparam file is used
+2025-04-09 10:06:15,514 - speechbrain.core - INFO - Gradscaler enabled: False. Using precision: fp32.
+2025-04-09 10:06:15,517 - speechbrain.core - INFO - ASR Model Statistics:
+* Total Number of Trainable Parameters: 13.3M
+* Total Number of Parameters: 13.3M
+* Trainable Parameters represent 100.0000% of the total size.
+2025-04-09 10:06:16,181 - speechbrain.utils.checkpoints - INFO - Loading a checkpoint from results/conformer_small/7775/save/CKPT+2025-04-06+01-25-58+00
+2025-04-09 10:06:20,801 - speechbrain.utils.epoch_loop - INFO - Going into epoch 28
+2025-04-09 11:59:40,766 - speechbrain.utils.train_logger - INFO - epoch: 28, lr: 1.95e-04, steps: 656236, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.49e+02, valid ACC: 2.70e-01
+2025-04-09 11:59:42,567 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+11-59-40+00
+2025-04-09 11:59:42,869 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-01+10-46-05+00
+2025-04-09 11:59:42,878 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-01+21-29-48+00
+2025-04-09 11:59:42,886 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-01+23-17-19+00
+2025-04-09 11:59:42,895 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-01+12-32-43+00
+2025-04-09 11:59:42,904 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-01+17-54-50+00
+2025-04-09 11:59:42,912 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-01+16-08-02+00
+2025-04-09 11:59:42,921 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-01+19-41-41+00
+2025-04-09 11:59:42,929 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-01+14-20-04+00
+2025-04-09 11:59:42,930 - speechbrain.utils.epoch_loop - INFO - Going into epoch 29
+2025-04-09 13:46:35,819 - speechbrain.utils.train_logger - INFO - epoch: 29, lr: 1.92e-04, steps: 679673, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.47e+02, valid ACC: 2.72e-01
+2025-04-09 13:46:37,805 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+13-46-35+00
+2025-04-09 13:46:38,111 - speechbrain.utils.epoch_loop - INFO - Going into epoch 30
+2025-04-09 16:21:58,590 - speechbrain.utils.train_logger - INFO - epoch: 30, lr: 1.89e-04, steps: 703110, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.49e+02, valid ACC: 2.69e-01, valid WER: 97.03
+2025-04-09 16:22:00,659 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+16-21-58+00
+2025-04-09 16:22:01,675 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+12-52-43+00
+2025-04-09 16:22:01,676 - speechbrain.utils.epoch_loop - INFO - Going into epoch 31
+2025-04-09 18:08:07,738 - speechbrain.utils.train_logger - INFO - epoch: 31, lr: 1.85e-04, steps: 726547, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.54e+02, valid ACC: 2.67e-01
+2025-04-09 18:08:09,992 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+18-08-07+00
+2025-04-09 18:08:11,105 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+14-44-05+00
+2025-04-09 18:08:11,108 - speechbrain.utils.epoch_loop - INFO - Going into epoch 32
+2025-04-09 19:54:44,007 - speechbrain.utils.train_logger - INFO - epoch: 32, lr: 1.83e-04, steps: 749984, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.51e+02, valid ACC: 2.69e-01
+2025-04-09 19:54:45,783 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+19-54-44+00
+2025-04-09 19:54:46,378 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+16-30-52+00
+2025-04-09 19:54:46,379 - speechbrain.utils.epoch_loop - INFO - Going into epoch 33
+2025-04-09 21:42:46,798 - speechbrain.utils.train_logger - INFO - epoch: 33, lr: 1.80e-04, steps: 773421, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.55e+02, valid ACC: 2.63e-01
+2025-04-09 21:42:48,667 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+21-42-46+00
+2025-04-09 21:42:49,424 - speechbrain.utils.epoch_loop - INFO - Going into epoch 34
+2025-04-09 23:29:34,059 - speechbrain.utils.train_logger - INFO - epoch: 34, lr: 1.77e-04, steps: 796858, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.55e+02, valid ACC: 2.63e-01
+2025-04-09 23:29:35,947 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+23-29-34+00
+2025-04-09 23:29:37,087 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+20-06-46+00
+2025-04-09 23:29:37,088 - speechbrain.utils.epoch_loop - INFO - Going into epoch 35
+2025-04-10 01:15:49,896 - speechbrain.utils.train_logger - INFO - epoch: 35, lr: 1.75e-04, steps: 820295, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.37e+02, valid ACC: 2.78e-01
+2025-04-10 01:15:51,729 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+01-15-49+00
+2025-04-10 01:15:52,504 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+21-52-20+00
+2025-04-10 01:15:52,511 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+18-20-10+00
+2025-04-10 01:15:52,511 - speechbrain.utils.epoch_loop - INFO - Going into epoch 36
+2025-04-10 03:02:42,335 - speechbrain.utils.train_logger - INFO - epoch: 36, lr: 1.72e-04, steps: 843732, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.49e+02, valid ACC: 2.70e-01
+2025-04-10 03:02:44,148 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+03-02-42+00
+2025-04-10 03:02:45,109 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+23-40-04+00
+2025-04-10 03:02:45,110 - speechbrain.utils.epoch_loop - INFO - Going into epoch 37
+2025-04-10 04:50:24,951 - speechbrain.utils.train_logger - INFO - epoch: 37, lr: 1.70e-04, steps: 867169, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.39e+02, valid ACC: 2.75e-01
+2025-04-10 04:50:26,796 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+04-50-24+00
+2025-04-10 04:50:27,908 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-04+21-28-26+00
+2025-04-10 04:50:27,959 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-06+01-25-58+00
+2025-04-10 04:50:27,959 - speechbrain.utils.epoch_loop - INFO - Going into epoch 38
+2025-04-10 06:35:58,958 - speechbrain.utils.train_logger - INFO - epoch: 38, lr: 1.68e-04, steps: 890606, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.38e+02, valid ACC: 2.75e-01
+2025-04-10 06:36:00,817 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+06-35-58+00
+2025-04-10 06:36:01,993 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+08-03-00+00
+2025-04-10 06:36:02,054 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+11-59-40+00
+2025-04-10 06:36:02,055 - speechbrain.utils.epoch_loop - INFO - Going into epoch 39
+2025-04-10 08:21:52,837 - speechbrain.utils.train_logger - INFO - epoch: 39, lr: 1.65e-04, steps: 914043, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.37e+02, valid ACC: 2.74e-01
+2025-04-10 08:21:54,678 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+08-21-52+00
+2025-04-10 08:21:55,712 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-02+01-03-10+00
+2025-04-10 08:21:55,713 - speechbrain.utils.epoch_loop - INFO - Going into epoch 40
+2025-04-10 11:25:21,953 - speechbrain.utils.train_logger - INFO - epoch: 40, lr: 1.63e-04, steps: 937480, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.39e+02, valid ACC: 2.69e-01, valid WER: 1.00e+02
+2025-04-10 11:25:26,065 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+11-25-21+00
+2025-04-10 11:25:27,462 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+16-21-58+00
+2025-04-10 11:25:27,463 - speechbrain.utils.epoch_loop - INFO - Going into epoch 41
+2025-04-10 13:11:48,934 - speechbrain.utils.train_logger - INFO - epoch: 41, lr: 1.61e-04, steps: 960917, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.40e+02, valid ACC: 2.74e-01
+2025-04-10 13:11:50,804 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+13-11-48+00
+2025-04-10 13:11:52,414 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+18-08-07+00
+2025-04-10 13:11:52,421 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+09-48-13+00
+2025-04-10 13:11:52,422 - speechbrain.utils.epoch_loop - INFO - Going into epoch 42
+2025-04-10 14:58:21,618 - speechbrain.utils.train_logger - INFO - epoch: 42, lr: 1.59e-04, steps: 984354, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.53e+02, valid ACC: 2.68e-01
+2025-04-10 14:58:23,834 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+14-58-21+00
+2025-04-10 14:58:26,336 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+19-54-44+00
+2025-04-10 14:58:26,337 - speechbrain.utils.epoch_loop - INFO - Going into epoch 43
+2025-04-10 16:45:05,339 - speechbrain.utils.train_logger - INFO - epoch: 43, lr: 1.58e-04, steps: 1007791, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.56e+02, valid ACC: 2.66e-01
+2025-04-10 16:45:07,375 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+16-45-05+00
+2025-04-10 16:45:09,540 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+21-42-46+00
+2025-04-10 16:45:09,541 - speechbrain.utils.epoch_loop - INFO - Going into epoch 44
+2025-04-10 18:32:36,944 - speechbrain.utils.train_logger - INFO - epoch: 44, lr: 1.56e-04, steps: 1031228, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.52e+02, valid ACC: 2.68e-01
+2025-04-10 18:32:38,943 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+18-32-36+00
+2025-04-10 18:32:40,808 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+23-29-34+00
+2025-04-10 18:32:40,809 - speechbrain.utils.epoch_loop - INFO - Going into epoch 45
+2025-04-10 20:21:14,558 - speechbrain.utils.train_logger - INFO - epoch: 45, lr: 1.54e-04, steps: 1054665, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.39e+02, valid ACC: 2.72e-01
+2025-04-10 20:21:16,502 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+20-21-14+00
+2025-04-10 20:21:18,422 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+06-17-32+00
+2025-04-10 20:21:18,423 - speechbrain.utils.epoch_loop - INFO - Going into epoch 46
+2025-04-10 22:09:27,794 - speechbrain.utils.train_logger - INFO - epoch: 46, lr: 1.52e-04, steps: 1078102, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.46e+02, valid ACC: 2.74e-01
+2025-04-10 22:09:29,664 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+22-09-27+00
+2025-04-10 22:09:31,014 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-09+13-46-35+00
+2025-04-10 22:09:31,076 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+03-02-42+00
+2025-04-10 22:09:31,076 - speechbrain.utils.epoch_loop - INFO - Going into epoch 47
+2025-04-10 23:54:38,149 - speechbrain.utils.train_logger - INFO - epoch: 47, lr: 1.51e-04, steps: 1101539, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.38e+02, valid ACC: 2.72e-01
+2025-04-10 23:54:40,230 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+23-54-38+00
+2025-04-10 23:54:42,312 - speechbrain.utils.epoch_loop - INFO - Going into epoch 48
+2025-04-11 01:40:27,968 - speechbrain.utils.train_logger - INFO - epoch: 48, lr: 1.49e-04, steps: 1124976, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.38e+02, valid ACC: 2.74e-01
+2025-04-11 01:40:29,968 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+01-40-27+00
+2025-04-11 01:40:32,028 - speechbrain.utils.epoch_loop - INFO - Going into epoch 49
+2025-04-11 03:27:07,590 - speechbrain.utils.train_logger - INFO - epoch: 49, lr: 1.48e-04, steps: 1148413, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.47e+02, valid ACC: 2.71e-01
+2025-04-11 03:27:11,088 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+03-27-07+00
+2025-04-11 03:27:14,848 - speechbrain.utils.epoch_loop - INFO - Going into epoch 50
+2025-04-11 05:58:54,246 - speechbrain.utils.train_logger - INFO - epoch: 50, lr: 1.46e-04, steps: 1171850, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.36e+02, valid ACC: 2.81e-01, valid WER: 97.83
+2025-04-11 05:58:56,057 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+05-58-54+00
+2025-04-11 05:58:58,186 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+02-46-33+00
+2025-04-11 05:58:58,246 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+11-25-21+00
+2025-04-11 05:58:58,247 - speechbrain.utils.epoch_loop - INFO - Going into epoch 51
+2025-04-11 07:45:00,585 - speechbrain.utils.train_logger - INFO - epoch: 51, lr: 1.45e-04, steps: 1195287, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.37e+02, valid ACC: 2.76e-01
+2025-04-11 07:45:02,397 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+07-45-00+00
+2025-04-11 07:45:04,609 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-05+01-00-54+00
+2025-04-11 07:45:04,610 - speechbrain.utils.epoch_loop - INFO - Going into epoch 52
+2025-04-11 09:32:11,730 - speechbrain.utils.train_logger - INFO - epoch: 52, lr: 1.43e-04, steps: 1218724, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.42e+02, valid ACC: 2.76e-01
+2025-04-11 09:32:13,674 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+09-32-11+00
+2025-04-11 09:32:16,055 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+13-11-48+00
+2025-04-11 09:32:16,116 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+14-58-21+00
+2025-04-11 09:32:16,117 - speechbrain.utils.epoch_loop - INFO - Going into epoch 53
+2025-04-11 11:20:54,230 - speechbrain.utils.train_logger - INFO - epoch: 53, lr: 1.42e-04, steps: 1242161, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.39e+02, valid ACC: 2.69e-01
+2025-04-11 11:20:56,184 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+11-20-54+00
+2025-04-11 11:20:58,783 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+16-45-05+00
+2025-04-11 11:20:58,784 - speechbrain.utils.epoch_loop - INFO - Going into epoch 54
+2025-04-11 13:06:23,153 - speechbrain.utils.train_logger - INFO - epoch: 54, lr: 1.41e-04, steps: 1265598, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.38e+02, valid ACC: 2.80e-01
+2025-04-11 13:06:25,223 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+13-06-23+00
+2025-04-11 13:06:27,821 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+18-32-36+00
+2025-04-11 13:06:27,822 - speechbrain.utils.epoch_loop - INFO - Going into epoch 55
+2025-04-11 14:51:42,829 - speechbrain.utils.train_logger - INFO - epoch: 55, lr: 1.39e-04, steps: 1289035, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.35e+02, valid ACC: 2.81e-01
+2025-04-11 14:51:44,797 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+14-51-42+00
+2025-04-11 14:51:47,382 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+08-21-52+00
+2025-04-11 14:51:47,454 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+20-21-14+00
+2025-04-11 14:51:47,455 - speechbrain.utils.epoch_loop - INFO - Going into epoch 56
+2025-04-11 16:36:29,676 - speechbrain.utils.train_logger - INFO - epoch: 56, lr: 1.38e-04, steps: 1312472, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.47e+02, valid ACC: 2.76e-01
+2025-04-11 16:36:31,613 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+16-36-29+00
+2025-04-11 16:36:34,844 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+22-09-27+00
+2025-04-11 16:36:34,845 - speechbrain.utils.epoch_loop - INFO - Going into epoch 57
+2025-04-11 18:23:16,596 - speechbrain.utils.train_logger - INFO - epoch: 57, lr: 1.37e-04, steps: 1335909, optimizer: Adam - train loss: 2.10e+02 - valid loss: 1.34e+02, valid ACC: 2.82e-01
+2025-04-11 18:23:18,540 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+18-23-16+00
+2025-04-11 18:23:21,163 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+04-50-24+00
+2025-04-11 18:23:21,228 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+23-54-38+00
+2025-04-11 18:23:21,229 - speechbrain.utils.epoch_loop - INFO - Going into epoch 58
+2025-04-11 20:13:03,110 - speechbrain.utils.train_logger - INFO - epoch: 58, lr: 1.36e-04, steps: 1359346, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.78e-01
+2025-04-11 20:13:05,116 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+20-13-03+00
+2025-04-11 20:13:07,798 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+01-40-27+00
+2025-04-11 20:13:07,859 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+06-35-58+00
+2025-04-11 20:13:07,860 - speechbrain.utils.epoch_loop - INFO - Going into epoch 59
+2025-04-11 21:58:04,286 - speechbrain.utils.train_logger - INFO - epoch: 59, lr: 1.34e-04, steps: 1382783, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.44e+02, valid ACC: 2.78e-01
+2025-04-11 21:58:06,138 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+21-58-04+00
+2025-04-11 21:58:08,547 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+03-27-07+00
+2025-04-11 21:58:08,547 - speechbrain.utils.epoch_loop - INFO - Going into epoch 60
+2025-04-12 00:24:58,797 - speechbrain.utils.train_logger - INFO - epoch: 60, lr: 1.33e-04, steps: 1406220, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.40e+02, valid ACC: 2.72e-01, valid WER: 95.55
+2025-04-12 00:25:00,672 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+00-24-58+00
+2025-04-12 00:25:03,091 - speechbrain.utils.epoch_loop - INFO - Going into epoch 61
+2025-04-12 02:10:39,731 - speechbrain.utils.train_logger - INFO - epoch: 61, lr: 1.32e-04, steps: 1429657, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.73e-01
+2025-04-12 02:10:41,713 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+02-10-39+00
+2025-04-12 02:10:44,499 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+07-45-00+00
+2025-04-12 02:10:44,501 - speechbrain.utils.epoch_loop - INFO - Going into epoch 62
+2025-04-12 03:55:40,474 - speechbrain.utils.train_logger - INFO - epoch: 62, lr: 1.31e-04, steps: 1453094, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.40e+02, valid ACC: 2.81e-01
+2025-04-12 03:55:42,318 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+03-55-40+00
+2025-04-12 03:55:45,283 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+09-32-11+00
+2025-04-12 03:55:45,283 - speechbrain.utils.epoch_loop - INFO - Going into epoch 63
+2025-04-12 05:42:00,829 - speechbrain.utils.train_logger - INFO - epoch: 63, lr: 1.30e-04, steps: 1476531, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.35e+02, valid ACC: 2.79e-01
+2025-04-12 05:42:02,682 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+05-42-00+00
+2025-04-12 05:42:05,628 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+11-20-54+00
+2025-04-12 05:42:05,629 - speechbrain.utils.epoch_loop - INFO - Going into epoch 64
+2025-04-12 07:27:15,627 - speechbrain.utils.train_logger - INFO - epoch: 64, lr: 1.29e-04, steps: 1499968, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.36e+02, valid ACC: 2.76e-01
+2025-04-12 07:27:17,517 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+07-27-15+00
+2025-04-12 07:27:20,345 - speechbrain.utils.epoch_loop - INFO - Going into epoch 65
+2025-04-12 09:12:17,378 - speechbrain.utils.train_logger - INFO - epoch: 65, lr: 1.28e-04, steps: 1523405, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.80e-01
+2025-04-12 09:12:19,215 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+09-12-17+00
+2025-04-12 09:12:22,743 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-04+23-13-49+00
+2025-04-12 09:12:22,744 - speechbrain.utils.epoch_loop - INFO - Going into epoch 66
+2025-04-12 14:53:25,114 - speechbrain.utils.quirks - INFO - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+2025-04-12 14:53:25,116 - speechbrain.utils.quirks - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-04-12 14:53:25,116 - speechbrain.core - INFO - Beginning experiment!
+2025-04-12 14:53:25,117 - speechbrain.core - INFO - Experiment folder: results/conformer_small/7775
+2025-04-12 14:53:33,186 - speechbrain.utils.superpowers - DEBUG - certifi==2025.1.31
+charset-normalizer==3.4.1
+filelock==3.18.0
+fsspec==2025.3.0
+huggingface-hub==0.29.3
+HyperPyYAML==1.2.2
+idna==3.10
+Jinja2==3.1.6
+joblib==1.4.2
+MarkupSafe==3.0.2
+mpmath==1.3.0
+networkx==3.4.2
+numpy==2.2.4
+nvidia-cublas-cu12==12.4.5.8
+nvidia-cuda-cupti-cu12==12.4.127
+nvidia-cuda-nvrtc-cu12==12.4.127
+nvidia-cuda-runtime-cu12==12.4.127
+nvidia-cudnn-cu12==9.1.0.70
+nvidia-cufft-cu12==11.2.1.3
+nvidia-curand-cu12==10.3.5.147
+nvidia-cusolver-cu12==11.6.1.9
+nvidia-cusparse-cu12==12.3.1.170
+nvidia-cusparselt-cu12==0.6.2
+nvidia-nccl-cu12==2.21.5
+nvidia-nvjitlink-cu12==12.4.127
+nvidia-nvtx-cu12==12.4.127
+packaging==24.2
+pillow==11.1.0
+PyYAML==6.0.2
+requests==2.32.3
+ruamel.yaml==0.18.10
+ruamel.yaml.clib==0.2.12
+scipy==1.15.2
+sentencepiece==0.2.0
+speechbrain==1.0.2
+sympy==1.13.1
+torch==2.6.0
+torchaudio==2.6.0
+torchvision==0.21.0
+tqdm==4.67.1
+triton==3.2.0
+typing_extensions==4.13.0
+urllib3==2.3.0
+
+
+2025-04-12 14:53:33,376 - speechbrain.utils.superpowers - DEBUG - 2400aed
+
+
+2025-04-12 14:53:33,394 - librispeech_prepare - INFO - Skipping preparation, completed in previous run.
+2025-04-12 14:53:36,838 - speechbrain.utils.parameter_transfer - DEBUG - Collecting files (or symlinks) for pretraining in results/conformer_small/7775/save.
+2025-04-12 14:53:36,960 - speechbrain.utils.fetching - INFO - Fetch lm.ckpt: Fetching from HuggingFace Hub 'speechbrain/asr-transformer-transformerlm-librispeech' if not cached
+2025-04-12 14:53:37,858 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2025-04-12 14:53:38,327 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /speechbrain/asr-transformer-transformerlm-librispeech/resolve/main/lm.ckpt HTTP/1.1" 302 0
+2025-04-12 14:53:38,335 - speechbrain.utils.fetching - DEBUG - Fetch: Local file found, creating symlink '/home/yandex/APDL2425a/group_8/bin/HuggingFace-cache/hub/models--speechbrain--asr-transformer-transformerlm-librispeech/snapshots/bcf56f762f37877912578f8800bc2a4f5171e5e5/lm.ckpt' -> '/home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/lm.ckpt'
+2025-04-12 14:53:38,337 - speechbrain.utils.parameter_transfer - DEBUG - Set local path in self.paths["lm"] = /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/lm.ckpt
+2025-04-12 14:53:38,349 - speechbrain.utils.fetching - INFO - Fetch tokenizer.ckpt: Fetching from HuggingFace Hub 'speechbrain/asr-transformer-transformerlm-librispeech' if not cached
+2025-04-12 14:53:38,510 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /speechbrain/asr-transformer-transformerlm-librispeech/resolve/main/tokenizer.ckpt HTTP/1.1" 302 0
+2025-04-12 14:53:38,514 - speechbrain.utils.fetching - DEBUG - Fetch: Local file found, creating symlink '/home/yandex/APDL2425a/group_8/bin/HuggingFace-cache/hub/models--speechbrain--asr-transformer-transformerlm-librispeech/snapshots/bcf56f762f37877912578f8800bc2a4f5171e5e5/tokenizer.ckpt' -> '/home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/tokenizer.ckpt'
+2025-04-12 14:53:38,516 - speechbrain.utils.parameter_transfer - DEBUG - Set local path in self.paths["tokenizer"] = /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/tokenizer.ckpt
+2025-04-12 14:53:38,516 - speechbrain.utils.parameter_transfer - INFO - Loading pretrained files for: lm, tokenizer
+2025-04-12 14:53:38,517 - speechbrain.utils.parameter_transfer - DEBUG - Redirecting (loading from local path): lm -> /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/lm.ckpt
+2025-04-12 14:53:38,517 - speechbrain.utils.parameter_transfer - DEBUG - Redirecting (loading from local path): tokenizer -> /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/tokenizer.ckpt
+2025-04-12 14:53:49,486 - speechbrain.core - INFO - Info: precision arg from hparam file is used
+2025-04-12 14:53:49,487 - speechbrain.core - INFO - Info: max_grad_norm arg from hparam file is used
+2025-04-12 14:53:49,487 - speechbrain.core - INFO - Info: grad_accumulation_factor arg from hparam file is used
+2025-04-12 14:53:50,445 - speechbrain.core - INFO - Gradscaler enabled: False. Using precision: fp32.
+2025-04-12 14:53:50,448 - speechbrain.core - INFO - ASR Model Statistics:
+* Total Number of Trainable Parameters: 13.3M
+* Total Number of Parameters: 13.3M
+* Trainable Parameters represent 100.0000% of the total size.
+2025-04-12 14:53:50,952 - speechbrain.utils.checkpoints - INFO - Loading a checkpoint from results/conformer_small/7775/save/CKPT+2025-04-12+09-12-17+00
+2025-04-12 14:53:58,590 - speechbrain.utils.epoch_loop - INFO - Going into epoch 66
+2025-04-12 16:47:41,033 - speechbrain.utils.train_logger - INFO - epoch: 66, lr: 1.27e-04, steps: 1546842, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.80e-01
+2025-04-12 16:47:42,829 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+16-47-41+00
+2025-04-12 16:47:42,987 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+16-36-29+00
+2025-04-12 16:47:43,013 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-10+01-15-49+00
+2025-04-12 16:47:43,014 - speechbrain.utils.epoch_loop - INFO - Going into epoch 67
+2025-04-12 18:32:44,219 - speechbrain.utils.train_logger - INFO - epoch: 67, lr: 1.26e-04, steps: 1570279, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.37e+02, valid ACC: 2.80e-01
+2025-04-12 18:32:46,178 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+18-32-44+00
+2025-04-12 18:32:46,375 - speechbrain.utils.epoch_loop - INFO - Going into epoch 68
+2025-04-12 20:19:01,015 - speechbrain.utils.train_logger - INFO - epoch: 68, lr: 1.25e-04, steps: 1593716, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.36e+02, valid ACC: 2.81e-01
+2025-04-12 20:19:02,949 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+20-19-01+00
+2025-04-12 20:19:03,326 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+20-13-03+00
+2025-04-12 20:19:03,327 - speechbrain.utils.epoch_loop - INFO - Going into epoch 69
+2025-04-12 22:04:08,718 - speechbrain.utils.train_logger - INFO - epoch: 69, lr: 1.24e-04, steps: 1617153, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.36e+02, valid ACC: 2.80e-01
+2025-04-12 22:04:10,797 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+22-04-08+00
+2025-04-12 22:04:11,706 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+21-58-04+00
+2025-04-12 22:04:11,708 - speechbrain.utils.epoch_loop - INFO - Going into epoch 70
+2025-04-13 00:59:02,964 - speechbrain.utils.train_logger - INFO - epoch: 70, lr: 1.23e-04, steps: 1640590, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.36e+02, valid ACC: 2.81e-01, valid WER: 95.70
+2025-04-13 00:59:04,967 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+00-59-02+00
+2025-04-13 00:59:05,587 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+00-24-58+00
+2025-04-13 00:59:05,605 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+13-06-23+00
+2025-04-13 00:59:05,606 - speechbrain.utils.epoch_loop - INFO - Going into epoch 71
+2025-04-13 02:45:13,454 - speechbrain.utils.train_logger - INFO - epoch: 71, lr: 1.23e-04, steps: 1664027, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.82e-01
+2025-04-13 02:45:15,322 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+02-45-13+00
+2025-04-13 02:45:15,878 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+02-10-39+00
+2025-04-13 02:45:15,879 - speechbrain.utils.epoch_loop - INFO - Going into epoch 72
+2025-04-13 04:31:25,530 - speechbrain.utils.train_logger - INFO - epoch: 72, lr: 1.22e-04, steps: 1687464, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.37e+02, valid ACC: 2.80e-01
+2025-04-13 04:31:27,376 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+04-31-25+00
+2025-04-13 04:31:27,856 - speechbrain.utils.epoch_loop - INFO - Going into epoch 73
+2025-04-13 06:18:58,975 - speechbrain.utils.train_logger - INFO - epoch: 73, lr: 1.21e-04, steps: 1710901, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.71e-01
+2025-04-13 06:19:00,814 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+06-18-58+00
+2025-04-13 06:19:01,533 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+05-42-00+00
+2025-04-13 06:19:01,534 - speechbrain.utils.epoch_loop - INFO - Going into epoch 74
+2025-04-13 08:04:27,210 - speechbrain.utils.train_logger - INFO - epoch: 74, lr: 1.20e-04, steps: 1734338, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.40e+02, valid ACC: 2.81e-01
+2025-04-13 08:04:29,089 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+08-04-27+00
+2025-04-13 08:04:29,723 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+07-27-15+00
+2025-04-13 08:04:29,724 - speechbrain.utils.epoch_loop - INFO - Going into epoch 75
+2025-04-13 09:49:37,903 - speechbrain.utils.train_logger - INFO - epoch: 75, lr: 1.19e-04, steps: 1757775, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.72e-01
+2025-04-13 09:49:39,773 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+09-49-37+00
+2025-04-13 09:49:40,480 - speechbrain.utils.epoch_loop - INFO - Going into epoch 76
+2025-04-13 11:34:58,760 - speechbrain.utils.train_logger - INFO - epoch: 76, lr: 1.18e-04, steps: 1781212, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.79e-01
+2025-04-13 11:35:00,710 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+11-34-58+00
+2025-04-13 11:35:01,578 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+16-47-41+00
+2025-04-13 11:35:01,578 - speechbrain.utils.epoch_loop - INFO - Going into epoch 77
+2025-04-13 13:20:54,688 - speechbrain.utils.train_logger - INFO - epoch: 77, lr: 1.18e-04, steps: 1804649, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.74e-01
+2025-04-13 13:20:56,584 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+13-20-54+00
+2025-04-13 13:20:57,831 - speechbrain.utils.epoch_loop - INFO - Going into epoch 78
+2025-04-13 15:06:01,014 - speechbrain.utils.train_logger - INFO - epoch: 78, lr: 1.17e-04, steps: 1828086, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.36e+02, valid ACC: 2.81e-01
+2025-04-13 15:06:02,838 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+15-06-01+00
+2025-04-13 15:06:04,270 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+18-32-44+00
+2025-04-13 15:06:04,271 - speechbrain.utils.epoch_loop - INFO - Going into epoch 79
+2025-04-13 16:52:57,902 - speechbrain.utils.train_logger - INFO - epoch: 79, lr: 1.16e-04, steps: 1851523, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.78e-01
+2025-04-13 16:52:59,777 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+16-52-57+00
+2025-04-13 16:53:01,097 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+22-04-08+00
+2025-04-13 16:53:01,098 - speechbrain.utils.epoch_loop - INFO - Going into epoch 80
+2025-04-13 19:20:25,860 - speechbrain.utils.train_logger - INFO - epoch: 80, lr: 1.15e-04, steps: 1874960, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.41e+02, valid ACC: 2.68e-01, valid WER: 96.34
+2025-04-13 19:20:27,823 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+19-20-25+00
+2025-04-13 19:20:30,690 - speechbrain.utils.epoch_loop - INFO - Going into epoch 81
+2025-04-13 21:08:25,571 - speechbrain.utils.train_logger - INFO - epoch: 81, lr: 1.15e-04, steps: 1898397, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.36e+02, valid ACC: 2.80e-01
+2025-04-13 21:08:28,465 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+21-08-25+00
+2025-04-13 21:08:33,305 - speechbrain.utils.epoch_loop - INFO - Going into epoch 82
+2025-04-13 22:55:26,821 - speechbrain.utils.train_logger - INFO - epoch: 82, lr: 1.14e-04, steps: 1921834, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.69e-01
+2025-04-13 22:55:28,683 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+22-55-26+00
+2025-04-13 22:55:31,129 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+04-31-25+00
+2025-04-13 22:55:31,131 - speechbrain.utils.epoch_loop - INFO - Going into epoch 83
+2025-04-14 00:42:57,757 - speechbrain.utils.train_logger - INFO - epoch: 83, lr: 1.13e-04, steps: 1945271, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.41e+02, valid ACC: 2.64e-01
+2025-04-14 00:43:00,663 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+00-42-57+00
+2025-04-14 00:43:05,277 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+06-18-58+00
+2025-04-14 00:43:05,278 - speechbrain.utils.epoch_loop - INFO - Going into epoch 84
+2025-04-14 02:31:36,148 - speechbrain.utils.train_logger - INFO - epoch: 84, lr: 1.13e-04, steps: 1968708, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.36e+02, valid ACC: 2.80e-01
+2025-04-14 02:31:38,033 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+02-31-36+00
+2025-04-14 02:31:40,579 - speechbrain.utils.epoch_loop - INFO - Going into epoch 85
+2025-04-14 04:20:39,906 - speechbrain.utils.train_logger - INFO - epoch: 85, lr: 1.12e-04, steps: 1992145, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.36e+02, valid ACC: 2.77e-01
+2025-04-14 04:20:41,723 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+04-20-39+00
+2025-04-14 04:20:43,428 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+09-49-37+00
+2025-04-14 04:20:43,429 - speechbrain.utils.epoch_loop - INFO - Going into epoch 86
+2025-04-14 06:07:58,215 - speechbrain.utils.train_logger - INFO - epoch: 86, lr: 1.11e-04, steps: 2015582, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.72e-01
+2025-04-14 06:08:00,052 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+06-07-58+00
+2025-04-14 06:08:02,716 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+11-34-58+00
+2025-04-14 06:08:02,717 - speechbrain.utils.epoch_loop - INFO - Going into epoch 87
+2025-04-14 07:53:45,840 - speechbrain.utils.train_logger - INFO - epoch: 87, lr: 1.11e-04, steps: 2039019, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.69e-01
+2025-04-14 07:53:47,651 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+07-53-45+00
+2025-04-14 07:53:50,059 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+13-20-54+00
+2025-04-14 07:53:50,060 - speechbrain.utils.epoch_loop - INFO - Going into epoch 88
+2025-04-14 09:38:31,119 - speechbrain.utils.train_logger - INFO - epoch: 88, lr: 1.10e-04, steps: 2062456, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.77e-01
+2025-04-14 09:38:32,954 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+09-38-31+00
+2025-04-14 09:38:35,695 - speechbrain.utils.epoch_loop - INFO - Going into epoch 89
+2025-04-14 11:24:12,033 - speechbrain.utils.train_logger - INFO - epoch: 89, lr: 1.09e-04, steps: 2085893, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.35e+02, valid ACC: 2.78e-01
+2025-04-14 11:24:14,019 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+11-24-12+00
+2025-04-14 11:24:16,936 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+16-52-57+00
+2025-04-14 11:24:16,937 - speechbrain.utils.epoch_loop - INFO - Going into epoch 90
+2025-04-14 13:51:47,391 - speechbrain.utils.train_logger - INFO - epoch: 90, lr: 1.09e-04, steps: 2109330, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.76e-01, valid WER: 95.10
+2025-04-14 13:51:49,207 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+13-51-47+00
+2025-04-14 13:51:52,429 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+19-20-25+00
+2025-04-14 13:51:52,430 - speechbrain.utils.epoch_loop - INFO - Going into epoch 91
+2025-04-14 15:38:05,490 - speechbrain.utils.train_logger - INFO - epoch: 91, lr: 1.08e-04, steps: 2132767, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.37e+02, valid ACC: 2.79e-01
+2025-04-14 15:38:07,783 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+15-38-05+00
+2025-04-14 15:38:16,614 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+21-08-25+00
+2025-04-14 15:38:16,615 - speechbrain.utils.epoch_loop - INFO - Going into epoch 92
+2025-04-14 17:25:50,003 - speechbrain.utils.train_logger - INFO - epoch: 92, lr: 1.08e-04, steps: 2156204, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.76e-01
+2025-04-14 17:25:52,355 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+17-25-50+00
+2025-04-14 17:26:01,737 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+22-55-26+00
+2025-04-14 17:26:01,739 - speechbrain.utils.epoch_loop - INFO - Going into epoch 93
+2025-04-14 19:13:45,866 - speechbrain.utils.train_logger - INFO - epoch: 93, lr: 1.07e-04, steps: 2179641, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.37e+02, valid ACC: 2.77e-01
+2025-04-14 19:13:48,028 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+19-13-45+00
+2025-04-14 19:13:55,269 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+00-42-57+00
+2025-04-14 19:13:55,270 - speechbrain.utils.epoch_loop - INFO - Going into epoch 94
+2025-04-14 21:00:20,173 - speechbrain.utils.train_logger - INFO - epoch: 94, lr: 1.07e-04, steps: 2203078, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.37e+02, valid ACC: 2.78e-01
+2025-04-14 21:00:22,617 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+21-00-20+00
+2025-04-14 21:00:29,903 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+02-31-36+00
+2025-04-14 21:00:29,903 - speechbrain.utils.epoch_loop - INFO - Going into epoch 95
+2025-04-14 22:46:13,920 - speechbrain.utils.train_logger - INFO - epoch: 95, lr: 1.06e-04, steps: 2226515, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.37e+02, valid ACC: 2.78e-01
+2025-04-14 22:46:15,984 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+22-46-13+00
+2025-04-14 22:46:20,512 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+04-20-39+00
+2025-04-14 22:46:20,513 - speechbrain.utils.epoch_loop - INFO - Going into epoch 96
+2025-04-15 00:34:05,056 - speechbrain.utils.train_logger - INFO - epoch: 96, lr: 1.05e-04, steps: 2249952, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.36e+02, valid ACC: 2.81e-01
+2025-04-15 00:34:10,542 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+00-34-05+00
+2025-04-15 00:34:26,414 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+09-12-17+00
+2025-04-15 00:34:26,528 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+06-07-58+00
+2025-04-15 00:34:26,530 - speechbrain.utils.epoch_loop - INFO - Going into epoch 97
+2025-04-15 02:20:40,996 - speechbrain.utils.train_logger - INFO - epoch: 97, lr: 1.05e-04, steps: 2273389, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.37e+02, valid ACC: 2.79e-01
+2025-04-15 02:20:42,887 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+02-20-40+00
+2025-04-15 02:20:46,404 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+07-53-45+00
+2025-04-15 02:20:46,405 - speechbrain.utils.epoch_loop - INFO - Going into epoch 98
+2025-04-15 04:05:24,830 - speechbrain.utils.train_logger - INFO - epoch: 98, lr: 1.04e-04, steps: 2296826, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.37e+02, valid ACC: 2.78e-01
+2025-04-15 04:05:26,719 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+04-05-24+00
+2025-04-15 04:05:30,189 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+09-38-31+00
+2025-04-15 04:05:30,190 - speechbrain.utils.epoch_loop - INFO - Going into epoch 99
+2025-04-15 05:49:30,253 - speechbrain.utils.train_logger - INFO - epoch: 99, lr: 1.04e-04, steps: 2320263, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.74e-01
+2025-04-15 05:49:32,545 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+05-49-30+00
+2025-04-15 05:49:36,243 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+11-24-12+00
+2025-04-15 05:49:36,244 - speechbrain.utils.epoch_loop - INFO - Going into epoch 100
+2025-04-15 08:22:52,746 - speechbrain.utils.train_logger - INFO - epoch: 100, lr: 1.03e-04, steps: 2343700, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.76e-01, valid WER: 96.70
+2025-04-15 08:22:56,282 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+08-22-52+00
+2025-04-15 08:23:01,804 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+13-51-47+00
+2025-04-15 08:23:01,804 - speechbrain.utils.epoch_loop - INFO - Going into epoch 101
+2025-04-15 10:08:46,609 - speechbrain.utils.train_logger - INFO - epoch: 101, lr: 1.03e-04, steps: 2367137, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.76e-01
+2025-04-15 10:08:49,792 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+10-08-46+00
+2025-04-15 10:08:55,105 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+15-38-05+00
+2025-04-15 10:08:55,105 - speechbrain.utils.epoch_loop - INFO - Going into epoch 102
+2025-04-15 11:54:36,770 - speechbrain.utils.train_logger - INFO - epoch: 102, lr: 1.02e-04, steps: 2390574, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.75e-01
+2025-04-15 11:54:38,762 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+11-54-36+00
+2025-04-15 11:54:46,638 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+17-25-50+00
+2025-04-15 11:54:46,638 - speechbrain.utils.epoch_loop - INFO - Going into epoch 103
+2025-04-15 13:38:44,271 - speechbrain.utils.train_logger - INFO - epoch: 103, lr: 1.02e-04, steps: 2414011, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.38e+02, valid ACC: 2.82e-01
+2025-04-15 13:38:48,211 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+13-38-44+00
+2025-04-15 13:38:53,917 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+19-13-45+00
+2025-04-15 13:38:54,034 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+20-19-01+00
+2025-04-15 13:38:54,035 - speechbrain.utils.epoch_loop - INFO - Going into epoch 104
+2025-04-15 18:22:42,477 - speechbrain.utils.quirks - INFO - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+2025-04-15 18:22:42,480 - speechbrain.utils.quirks - INFO - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+2025-04-15 18:22:42,480 - speechbrain.core - INFO - Beginning experiment!
+2025-04-15 18:22:42,480 - speechbrain.core - INFO - Experiment folder: results/conformer_small/7775
+2025-04-15 18:22:52,961 - speechbrain.utils.superpowers - DEBUG - certifi==2025.1.31
+charset-normalizer==3.4.1
+filelock==3.18.0
+fsspec==2025.3.0
+huggingface-hub==0.29.3
+HyperPyYAML==1.2.2
+idna==3.10
+Jinja2==3.1.6
+joblib==1.4.2
+MarkupSafe==3.0.2
+mpmath==1.3.0
+networkx==3.4.2
+numpy==2.2.4
+nvidia-cublas-cu12==12.4.5.8
+nvidia-cuda-cupti-cu12==12.4.127
+nvidia-cuda-nvrtc-cu12==12.4.127
+nvidia-cuda-runtime-cu12==12.4.127
+nvidia-cudnn-cu12==9.1.0.70
+nvidia-cufft-cu12==11.2.1.3
+nvidia-curand-cu12==10.3.5.147
+nvidia-cusolver-cu12==11.6.1.9
+nvidia-cusparse-cu12==12.3.1.170
+nvidia-cusparselt-cu12==0.6.2
+nvidia-nccl-cu12==2.21.5
+nvidia-nvjitlink-cu12==12.4.127
+nvidia-nvtx-cu12==12.4.127
+packaging==24.2
+pillow==11.1.0
+PyYAML==6.0.2
+requests==2.32.3
+ruamel.yaml==0.18.10
+ruamel.yaml.clib==0.2.12
+scipy==1.15.2
+sentencepiece==0.2.0
+speechbrain==1.0.2
+sympy==1.13.1
+torch==2.6.0
+torchaudio==2.6.0
+torchvision==0.21.0
+tqdm==4.67.1
+triton==3.2.0
+typing_extensions==4.13.0
+urllib3==2.3.0
+
+
+2025-04-15 18:22:53,317 - speechbrain.utils.superpowers - DEBUG - 2400aed
+
+
+2025-04-15 18:22:53,416 - librispeech_prepare - INFO - Skipping preparation, completed in previous run.
+2025-04-15 18:22:57,032 - speechbrain.utils.parameter_transfer - DEBUG - Collecting files (or symlinks) for pretraining in results/conformer_small/7775/save.
+2025-04-15 18:22:57,198 - speechbrain.utils.fetching - INFO - Fetch lm.ckpt: Fetching from HuggingFace Hub 'speechbrain/asr-transformer-transformerlm-librispeech' if not cached
+2025-04-15 18:22:58,156 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2025-04-15 18:22:58,436 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /speechbrain/asr-transformer-transformerlm-librispeech/resolve/main/lm.ckpt HTTP/1.1" 302 0
+2025-04-15 18:22:58,459 - speechbrain.utils.fetching - DEBUG - Fetch: Local file found, creating symlink '/home/yandex/APDL2425a/group_8/bin/HuggingFace-cache/hub/models--speechbrain--asr-transformer-transformerlm-librispeech/snapshots/bcf56f762f37877912578f8800bc2a4f5171e5e5/lm.ckpt' -> '/home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/lm.ckpt'
+2025-04-15 18:22:58,490 - speechbrain.utils.parameter_transfer - DEBUG - Set local path in self.paths["lm"] = /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/lm.ckpt
+2025-04-15 18:22:58,538 - speechbrain.utils.fetching - INFO - Fetch tokenizer.ckpt: Fetching from HuggingFace Hub 'speechbrain/asr-transformer-transformerlm-librispeech' if not cached
+2025-04-15 18:22:58,693 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /speechbrain/asr-transformer-transformerlm-librispeech/resolve/main/tokenizer.ckpt HTTP/1.1" 302 0
+2025-04-15 18:22:58,704 - speechbrain.utils.fetching - DEBUG - Fetch: Local file found, creating symlink '/home/yandex/APDL2425a/group_8/bin/HuggingFace-cache/hub/models--speechbrain--asr-transformer-transformerlm-librispeech/snapshots/bcf56f762f37877912578f8800bc2a4f5171e5e5/tokenizer.ckpt' -> '/home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/tokenizer.ckpt'
+2025-04-15 18:22:58,709 - speechbrain.utils.parameter_transfer - DEBUG - Set local path in self.paths["tokenizer"] = /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/tokenizer.ckpt
+2025-04-15 18:22:58,709 - speechbrain.utils.parameter_transfer - INFO - Loading pretrained files for: lm, tokenizer
+2025-04-15 18:22:58,710 - speechbrain.utils.parameter_transfer - DEBUG - Redirecting (loading from local path): lm -> /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/lm.ckpt
+2025-04-15 18:22:58,710 - speechbrain.utils.parameter_transfer - DEBUG - Redirecting (loading from local path): tokenizer -> /home/yandex/APDL2425a/group_8/ADP-PROJ/results/conformer_small/7775/save/tokenizer.ckpt
+2025-04-15 18:23:11,214 - speechbrain.core - INFO - Info: precision arg from hparam file is used
+2025-04-15 18:23:11,217 - speechbrain.core - INFO - Info: max_grad_norm arg from hparam file is used
+2025-04-15 18:23:11,217 - speechbrain.core - INFO - Info: grad_accumulation_factor arg from hparam file is used
+2025-04-15 18:23:12,163 - speechbrain.core - INFO - Gradscaler enabled: False. Using precision: fp32.
+2025-04-15 18:23:12,168 - speechbrain.core - INFO - ASR Model Statistics:
+* Total Number of Trainable Parameters: 13.3M
+* Total Number of Parameters: 13.3M
+* Trainable Parameters represent 100.0000% of the total size.
+2025-04-15 18:23:13,608 - speechbrain.utils.checkpoints - INFO - Loading a checkpoint from results/conformer_small/7775/save/CKPT+2025-04-15+13-38-44+00
+2025-04-15 18:23:26,265 - speechbrain.utils.epoch_loop - INFO - Going into epoch 104
+2025-04-15 20:14:43,296 - speechbrain.utils.train_logger - INFO - epoch: 104, lr: 1.01e-04, steps: 2437448, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.78e-01
+2025-04-15 20:14:45,252 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+20-14-43+00
+2025-04-15 20:14:45,857 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+21-00-20+00
+2025-04-15 20:14:45,858 - speechbrain.utils.epoch_loop - INFO - Going into epoch 105
+2025-04-15 22:01:50,984 - speechbrain.utils.train_logger - INFO - epoch: 105, lr: 1.01e-04, steps: 2460885, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.37e+02, valid ACC: 2.79e-01
+2025-04-15 22:01:53,129 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+22-01-50+00
+2025-04-15 22:01:53,919 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-14+22-46-13+00
+2025-04-15 22:01:53,920 - speechbrain.utils.epoch_loop - INFO - Going into epoch 106
+2025-04-15 23:47:33,687 - speechbrain.utils.train_logger - INFO - epoch: 106, lr: 1.00e-04, steps: 2484322, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.77e-01
+2025-04-15 23:47:39,587 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+23-47-33+00
+2025-04-15 23:47:41,297 - speechbrain.utils.epoch_loop - INFO - Going into epoch 107
+2025-04-16 01:33:52,506 - speechbrain.utils.train_logger - INFO - epoch: 107, lr: 9.98e-05, steps: 2507759, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.79e-01
+2025-04-16 01:33:57,061 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+01-33-52+00
+2025-04-16 01:33:58,351 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+02-20-40+00
+2025-04-16 01:33:58,352 - speechbrain.utils.epoch_loop - INFO - Going into epoch 108
+2025-04-16 03:21:06,155 - speechbrain.utils.train_logger - INFO - epoch: 108, lr: 9.94e-05, steps: 2531196, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.79e-01
+2025-04-16 03:21:10,768 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+03-21-06+00
+2025-04-16 03:21:12,885 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+04-05-24+00
+2025-04-16 03:21:12,886 - speechbrain.utils.epoch_loop - INFO - Going into epoch 109
+2025-04-16 05:08:43,947 - speechbrain.utils.train_logger - INFO - epoch: 109, lr: 9.89e-05, steps: 2554633, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.39e+02, valid ACC: 2.73e-01
+2025-04-16 05:08:48,007 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+05-08-43+00
+2025-04-16 05:08:49,610 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+05-49-30+00
+2025-04-16 05:08:49,612 - speechbrain.utils.epoch_loop - INFO - Going into epoch 110
+2025-04-16 07:38:13,129 - speechbrain.utils.train_logger - INFO - epoch: 110, lr: 9.85e-05, steps: 2578070, optimizer: Adam - train loss: 2.09e+02 - valid loss: 1.37e+02, valid ACC: 2.77e-01, valid WER: 96.25
+2025-04-16 07:38:15,956 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+07-38-13+00
+2025-04-16 07:38:18,225 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+08-22-52+00
+2025-04-16 07:38:18,336 - speechbrain.utils.checkpoints - INFO - Loading a checkpoint from results/conformer_small/7775/save/CKPT+2025-04-16+07-38-13+00
+2025-04-16 07:38:18,516 - speechbrain.dataio.dataloader - DEBUG - SaveableDataLoader was requested to load a checkpoint, but the DataLoader has already been iterated. The DataLoader file will be ignored. This is normal in evaluation, when a checkpoint is loaded just to retrieve the best model.
+2025-04-16 12:36:13,901 - speechbrain.utils.train_logger - INFO - Epoch loaded: 110 - test loss: 2.77e+02, test ACC: 1.55e-01, test WER: 98.39
+2025-04-16 12:36:18,939 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+12-36-15+00
+2025-04-16 12:36:21,235 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+03-21-06+00
+2025-04-16 12:36:21,300 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+15-06-01+00
+2025-04-16 12:36:21,372 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+10-08-46+00
+2025-04-16 12:36:21,429 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+00-34-05+00
+2025-04-16 12:36:21,516 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+23-47-33+00
+2025-04-16 12:36:21,617 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+22-01-50+00
+2025-04-16 12:36:21,678 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+18-23-16+00
+2025-04-16 12:36:21,726 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+00-59-02+00
+2025-04-16 12:36:21,795 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+02-45-13+00
+2025-04-16 12:36:21,902 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+05-08-43+00
+2025-04-16 12:36:21,989 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+01-33-52+00
+2025-04-16 12:36:22,025 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-12+03-55-40+00
+2025-04-16 12:36:22,079 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-13+08-04-27+00
+2025-04-16 12:36:22,176 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+07-38-13+00
+2025-04-16 12:36:22,242 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+11-54-36+00
+2025-04-16 12:36:22,331 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+20-14-43+00
+2025-04-16 12:36:22,404 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-15+13-38-44+00
+2025-04-16 12:36:22,483 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+14-51-42+00
+2025-04-16 12:36:22,542 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-11+05-58-54+00
+2025-04-16 12:36:22,553 - speechbrain.utils.checkpoints - INFO - Loading a checkpoint from results/conformer_small/7775/save/CKPT+2025-04-16+12-36-15+00
+2025-04-16 12:36:22,725 - speechbrain.dataio.dataloader - DEBUG - SaveableDataLoader was requested to load a checkpoint, but the DataLoader has already been iterated. The DataLoader file will be ignored. This is normal in evaluation, when a checkpoint is loaded just to retrieve the best model.
+2025-04-16 17:20:59,311 - speechbrain.utils.train_logger - INFO - Epoch loaded: 110 - test loss: 1.28e+02, test ACC: 1.55e-01, test WER: 99.48
+2025-04-16 17:21:03,835 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+17-20-59+00
+2025-04-16 17:21:04,463 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+12-36-15+00
