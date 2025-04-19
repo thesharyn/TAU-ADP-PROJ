@@ -1,0 +1,27 @@
+speechbrain.utils.quirks - Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+speechbrain.utils.quirks - Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+speechbrain.core - Beginning experiment!
+speechbrain.core - Experiment folder: results/conformer_small/7775
+librispeech_prepare - Skipping preparation, completed in previous run.
+speechbrain.utils.fetching - Fetch lm.ckpt: Fetching from HuggingFace Hub 'speechbrain/asr-transformer-transformerlm-librispeech' if not cached
+speechbrain.utils.fetching - Fetch tokenizer.ckpt: Fetching from HuggingFace Hub 'speechbrain/asr-transformer-transformerlm-librispeech' if not cached
+speechbrain.utils.parameter_transfer - Loading pretrained files for: lm, tokenizer
+speechbrain.core - Info: precision arg from hparam file is used
+speechbrain.core - Info: max_grad_norm arg from hparam file is used
+speechbrain.core - Info: grad_accumulation_factor arg from hparam file is used
+speechbrain.core - Gradscaler enabled: False. Using precision: fp32.
+speechbrain.core - ASR Model Statistics:
+* Total Number of Trainable Parameters: 13.3M
+* Total Number of Parameters: 13.3M
+* Trainable Parameters represent 100.0000% of the total size.
+speechbrain.utils.checkpoints - Loading a checkpoint from results/conformer_small/7775/save/CKPT+2025-04-16+17-20-59+00
+speechbrain.utils.checkpoints - Loading a checkpoint from results/conformer_small/7775/save/CKPT+2025-04-16+17-20-59+00
+Loaded the average
+speechbrain.utils.train_logger - Epoch loaded: 110 - test loss: 88.88, test ACC: 1.55e-01, test WER: 98.39
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-19+08-05-46+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-16+17-20-59+00
+speechbrain.utils.checkpoints - Loading a checkpoint from results/conformer_small/7775/save/CKPT+2025-04-19+08-05-46+00
+Loaded the average
+speechbrain.utils.train_logger - Epoch loaded: 110 - test loss: 63.99, test ACC: 1.55e-01, test WER: 99.48
+speechbrain.utils.checkpoints - Saved an end-of-epoch checkpoint in results/conformer_small/7775/save/CKPT+2025-04-19+12-55-48+00
+speechbrain.utils.checkpoints - Deleted checkpoint in results/conformer_small/7775/save/CKPT+2025-04-19+08-05-46+00
