@@ -107,17 +107,16 @@ def validate_df(df: pd.DataFrame, expected_epochs: int) -> None:
 def handle_plots(df: pd.DataFrame, outdir: str) -> None:
     """
     Saves visualization plots for the performed training.
-    Three plots are made:
+    Four plots are made: train and val loss; val acc; val WER; lr and steps.
 
     :param df: dataframe of in-training results, sorted
     :param outdir: where to save the plots
     """
 
     os.makedirs(outdir, exist_ok=True)
+    epochs = df['epoch']  # x axis (normally)
 
-    epochs = df['epoch']
-
-    # Training and validation loss
+    # Plot 1: Training and validation loss
     plt.figure()
     plt.plot(epochs, df['train_loss'], label='Train Loss')
     plt.plot(epochs, df['val_loss'], label='Val Loss')
@@ -127,10 +126,19 @@ def handle_plots(df: pd.DataFrame, outdir: str) -> None:
     plt.legend()
     save_plot('loss', outdir)
 
-    #
+    # Plot 2: Validation accuracy
+    plt.figure()
+    plt.plot(epochs, df['val_acc'])
+    plt.xlabel('Epoch')
+    plt.ylabel('Accuracy')
+    plt.title('Validation Accuracy')
+    save_plot('val_acc', outdir)
+
+    # Plot 3: Validation Word Error Rate
     wer_data = df.dropna(subset=['val_wer'])
     if not wer_data.empty:
         plt.figure()
+        plt.tight_layout()
         plt.plot(wer_data['epoch'], wer_data['val_wer'], label='Valid WER')
         plt.xlabel('Epoch')
         plt.ylabel('WER')
@@ -138,14 +146,15 @@ def handle_plots(df: pd.DataFrame, outdir: str) -> None:
         plt.legend()
         save_plot('wer', outdir)
 
-    # Learning rate and steps
+    # Plot 4: Learning rate and steps
     fig, ax1 = plt.subplots()
-    ax1.plot(epochs, df['lr'], 'g-', label='Learning Rate')
+    plt.tight_layout()
+    ax1.plot(epochs, df['lr'], '-', label='Learning Rate')
     ax1.set_xlabel('Epoch')
     ax1.set_ylabel('Learning Rate')
 
     ax2 = ax1.twinx()
-    ax2.plot(epochs, df['steps'], 'b--', label='Steps')
+    ax2.plot(epochs, df['steps'], linestyle='--', color='#24dbff', label='Steps')
     ax2.set_ylabel('Steps')
     plt.title('Learning Rate and Steps')
     save_plot('lr_steps', outdir)
@@ -156,8 +165,8 @@ def save_plot(basename: str, outdir: str) -> None:
 
     png_path = os.path.join(outdir, f'{basename}.png')
     pdf_path = os.path.join(outdir, f'{basename}.pdf')
-    plt.savefig(png_path)
-    plt.savefig(pdf_path)
+    plt.savefig(png_path, bbox_inches='tight')
+    plt.savefig(pdf_path, bbox_inches='tight')
     logging.info(f'Saved plot: {png_path}\nSaved plot: {pdf_path}')
     plt.close()
 
