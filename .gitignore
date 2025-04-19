@@ -1,3 +1,9 @@
+### Project-Specific Ignores ###
+
+# Dataset folder (where LibriSpeech is stored; is not a proper part of the repo)
+datasets/
+
+
 # Created by https://www.toptal.com/developers/gitignore/api/pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=pycharm
 
