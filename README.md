@@ -1,3 +1,4 @@
+[Read our Medium blog post](https://medium.com/@eldadc1/what-we-learned-while-training-a-conformer-based-speech-recognition-model-01533474c0a7)
 # README for Conformer Model  
 ## Training and Evaluation Setup
 
